@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oh My Keks - Handmade Cookies</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f5f5f5 0%, #ffffff 100%);
+            color: #333;
+            line-height: 1.6;
+        }
+
+        header {
+            background: #fff;
+            padding: 2rem;
+            text-align: center;
+            border-bottom: 1px solid #eee;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            color: #2c2c2c;
+            letter-spacing: -0.5px;
+        }
+
+        .tagline {
+            font-size: 1.1rem;
+            color: #666;
+            margin-bottom: 1.5rem;
+        }
+
+        .header-cta {
+            display: inline-block;
+            background: #ff6b6b;
+            color: white;
+            padding: 0.8rem 2rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.3s;
+            font-size: 1rem;
+        }
+
+        .header-cta:hover {
+            background: #ff5252;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            color: #2c2c2c;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 220px;
+            background: linear-gradient(135deg, #f9d5a3 0%, #f5e6d3 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            font-weight: 500;
+        }
+
+        .product-info {
+            padding: 1.5rem;
+        }
+
+        .product-name {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #2c2c2c;
+        }
+
+        .product-description {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 1rem;
+        }
+
+        .product-price {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #ff6b6b;
+            margin-bottom: 1rem;
+        }
+
+        .order-btn {
+            width: 100%;
+            padding: 0.8rem;
+            background: #ff6b6b;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .order-btn:hover {
+            background: #ff5252;
+        }
+
+        .cta-section {
+            background: linear-gradient(135deg, #ff6b6b 0%, #ff8787 100%);
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+            border-radius: 12px;
+            margin: 3rem 0;
+        }
+
+        .cta-section h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta-section p {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            opacity: 0.95;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 1.5rem;
+        }
+
+        .social-link {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+
+        .social-link:hover {
+            background: rgba(255,255,255,0.3);
+        }
+
+        .info-section {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            margin-top: 2rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        .info-section h3 {
+            margin-bottom: 1rem;
+            color: #2c2c2c;
+        }
+
+        .info-section p {
+            color: #666;
+            margin-bottom: 0.8rem;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: #999;
+            border-top: 1px solid #eee;
+            margin-top: 3rem;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 1.8rem;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+            }
+
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-section h2 {
+                font-size: 1.5rem;
+            }
+
+            .social-links {
+                flex-direction: column;
+            }
+
+            .social-link {
+                width: 100%;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>🍪 Oh My Keks</h1>
+        <p class="tagline">Handmade Cookies – Frische geliefert von Eichstätt</p>
+        <a href="https://instagram.com/ohmykeks6" class="header-cta">Auf Instagram ansehen →</a>
+    </header>
+
+    <div class="container">
+        <div class="section-title">Unsere Sorten</div>
+
+        <div class="products-grid">
+            <div class="product-card">
+                <div class="product-image">🥜</div>
+                <div class="product-info">
+                    <div class="product-name">Peanut Butter</div>
+                    <div class="product-description">Cremig, nussig, intensiv</div>
+                    <div class="product-price">€3.50</div>
+                    <button class="order-btn">DM bestellen</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image">🍎</div>
+                <div class="product-info">
+                    <div class="product-name">Caramel Apple</div>
+                    <div class="product-description">Karamel trifft Apfel</div>
+                    <div class="product-price">€3.50</div>
+                    <button class="order-btn">DM bestellen</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image">🍯</div>
+                <div class="product-info">
+                    <div class="product-name">Honey Apple</div>
+                    <div class="product-description">Süß & fruchtig</div>
+                    <div class="product-price">€3.50</div>
+                    <button class="order-btn">DM bestellen</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image">🤎</div>
+                <div class="product-info">
+                    <div class="product-name">Nutella</div>
+                    <div class="product-description">Klassiker mit Haselnussausstrich</div>
+                    <div class="product-price">€3.50</div>
+                    <button class="order-btn">DM bestellen</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image">🏳️‍🌈</div>
+                <div class="product-info">
+                    <div class="product-name">Pistachio</div>
+                    <div class="product-description">Raffiniert & elegant</div>
+                    <div class="product-price">€3.50</div>
+                    <button class="order-btn">DM bestellen</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image">💪</div>
+                <div class="product-info">
+                    <div class="product-name">Protein Cookie</div>
+                    <div class="product-description">38.8g Protein pro Cookie</div>
+                    <div class="product-price">€3.50</div>
+                    <button class="order-btn">DM bestellen</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="cta-section">
+            <h2>Bereit zum Bestellen?</h2>
+            <p>Schreib uns einfach eine DM auf Instagram oder TikTok.</p>
+            <p style="font-size: 0.9rem; opacity: 0.9;">Verfügbar für Lieferung in Eichstätt & Umgebung</p>
+            <div class="social-links">
+                <a href="https://instagram.com/ohmykeks6" class="social-link">→ Instagram: @ohmykeks6</a>
+                <a href="https://tiktok.com/@oh.my.keks" class="social-link">→ TikTok: @oh.my.keks</a>
+            </div>
+        </div>
+
+        <div class="info-section">
+            <h3>ℹ️ Wichtige Info</h3>
+            <p><strong>Liefergebiet:</strong> Eichstätt und unmittelbare Umgebung</p>
+            <p><strong>Bestellprozess:</strong> Schreib uns eine DM mit deiner Auswahl, dann bestätigen wir Verfügbarkeit & Lieferdatum.</p>
+            <p><strong>Frische garantiert:</strong> Alle Kekse werden handgemacht und frisch zu dir geliefert.</p>
+            <p style="margin-top: 1.5rem; color: #999;">Ab 22.09.2026 auch mit offiziellem Kleingewerbe.</p>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Oh My Keks. Alle Kekse handmade in Eichstätt 🍪</p>
+    </footer>
+
+    <script>
+        document.querySelectorAll('.order-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                window.location.href = 'https://instagram.com/ohmykeks6';
+            });
+        });
+    </script>
+</body>
+</html>
